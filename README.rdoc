@@ -1,0 +1,35 @@
+= pickled_optparse
+
+Allows a programmer to easily add required switches to a Ruby app using the built-in OptionParser class.
+
+To make a switch required simple add the symbol :required anywhere in the list of options like so:
+  
+  opts.on("-f [foo]", String, :required, "Required option") do |o|
+    @options[:foo] = o
+  end
+
+Then at the end of your OptionParser do block add this:
+  
+  if opts.missing_switches?
+    puts opts.missing_switches
+    puts opts
+    exit
+  end
+
+You of course need to require the "pickled_optparse" gem but that's it. You don't need to require the opt_parse file because that's already handled for you.
+
+For a complete example see the example.rb file.
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2010 Mike Bethany. See LICENSE for details.
