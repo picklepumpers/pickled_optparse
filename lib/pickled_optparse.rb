@@ -1,9 +1,9 @@
 require 'optparse'
 
-# Add required switches to OptionParser
+# Add the ability to specify switches as required to OptionParser
 class OptionParser
   
-  # An array of messages describing the missing any required switches
+  # An array of messages describing any missing required switches
   attr_reader :missing_switches
   
   # Convenience method to test if we're missing any required switches
@@ -138,15 +138,14 @@ class OptionParser
     if required && !(default_argv.include?("-#{short[0]}") || default_argv.include?("--#{long[0]}"))
         @missing_switches ||= [] # Should be placed in initialize if incorporated into Ruby proper
         
-        # This is ugly, long, and not very DRY but it's easy to understand
+        # This is ugly, long, and not very DRY but it is easy to understand
         #missing = "-#{short[0]}" if !short.empty?
         #missing = "#{missing} or " if !short.empty? && !long.empty?
         #missing = "#{missing}--#{long[0]}" if !long.empty?
         
-        # This is even uglier and really hard to read but it is shorter and DRY'er
-        missing = "#{"-#{short[0]}" if !short.empty?}#{" or " if !short.empty? && !long.empty?}#{"--#{long[0]}" if !long.empty?}"
-         
-        @missing_switches << "Missing switch: #{missing}"
+        # This is even uglier, and really hard to read, but it is shorter and 
+        # as DRY as I could figure out how to make it... but it still stinks.
+        @missing_switches << "Missing switch: #{"-#{short[0]}" if !short.empty?}#{" or " if !short.empty? && !long.empty?}#{"--#{long[0]}" if !long.empty?}"
     end
     
     return s, short, long,

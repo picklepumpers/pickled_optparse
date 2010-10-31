@@ -4,7 +4,7 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.required_ruby_version = '~> 1.9.2'
+    gem.required_ruby_version = '~> 1.9.2' # Everyone should upgrade, now!
     gem.name = "pickled_optparse"
     gem.summary = %Q{Adds required switches to the OptionParser class}
     gem.description = %Q{Adds the ability to easily specify and test for required switches in Ruby's built-in OptionParser class}
@@ -12,6 +12,7 @@ begin
     gem.homepage = "http://github.com/PicklePumpers/pickled_optparse"
     gem.authors = ["Mike Bethany"]
     gem.add_development_dependency "rspec", ">= 2.0.1"
+    gem.add_development_dependency "autotest"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -22,7 +23,7 @@ end
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new do |t| 
   t.rspec_opts = ["-c", "-f progress", "-r ./spec/spec_helper.rb"] 
-  t.pattern = 'spec/*_spec.rb' 
+  t.pattern = 'spec/*/*_spec.rb' 
 end
 
 RSpec::Core::RakeTask.new(:rcov) do |t|
