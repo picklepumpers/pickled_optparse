@@ -1,0 +1,14 @@
+=== Version 0.1.1
+
+No functional differences just some internal refactoring and clean up.
+
+* Replaced intrusive replacement of make_switch with a wrapper and alias.
+* Minor reorginization of directories to follow best practices.
+* Added Jeweler style versioning.
+* Cleaned up and moved example.rb to examples directory (best practices?).
+* Cleaned up rakefile.
+* Kludged the hell out of rdoc to make it allow example ruby files in the files section.
+
+=== Version 0.1.0
+
+Initial release.

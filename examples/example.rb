@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
-require_relative 'pickled_optparse'
+require_relative '../lib/pickled_optparse'
 
 # Configure options based on command line options
 @options = {}
 OptionParser.new do |opts|
-  opts.banner = "Usage: test [options] in_file[.srt] out_file[.srt]"
+  opts.banner = "Usage: example.rb [options]"
   
   # Note that :required can be anywhere in the parameters
   
@@ -41,3 +41,4 @@ OptionParser.new do |opts|
   end
 
 end.parse!
+

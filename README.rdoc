@@ -16,9 +16,10 @@ Then at the end of your OptionParser block add something like this:
     exit
   end
 
-You of course need to require the "pickled_optparse" gem but that's it. You don't need to require the opt_parse file because that's already handled for you.
+You of course need to require the "pickled_optparse" gem but that's it. 
+You don't need to require the opt_parse file because that's already handled for you.
 
-For a complete usage example see the lib/example.rb file.
+For a complete usage example see the examples/example.rb file.
 
 == Note on Patches/Pull Requests
  
